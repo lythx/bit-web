@@ -6,8 +6,7 @@ Zainstaluj [Git](https://git-scm.com/download/) i [Node](https://nodejs.org/en/d
 
 W terminalu:
 - `git clone https://github.com/lythx/bit-web.git`
-
-Po wejściu do głównego katalogu aplikacji:
+- `cd bit web`
 - `npm i`
 - `npm start`   
 
