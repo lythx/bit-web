@@ -13,8 +13,8 @@ const sortPredicates: { [id in keyof PrizeData]: Function } = {
   category: (a: LangStrings, b: LangStrings, lang: Language) => a[lang].localeCompare(b[lang]),
   date: (a: Date, b: Date) => {
     if (isNaN(a.getTime()) && isNaN(b.getTime())) { return 0 }
-    if (isNaN(b.getTime())) { return 1 }
-    if (isNaN(a.getTime())) { return -1 }
+    if (isNaN(b.getTime())) { return -1 }
+    if (isNaN(a.getTime())) { return 1 }
     return a.getTime() - b.getTime()
   },
   reward: (a: number, b: number) => a - b
