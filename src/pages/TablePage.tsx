@@ -36,7 +36,8 @@ export default function TablePage({ data }: TablePageProps) {
   const navigate = useNavigate()
   const params = useParams()
   const language = getLanguage(params.language)
-  const rows = data.filter(a => a.year === Number(params.year))
+  const year = Number(params.year)
+  const rows = data.filter(a => a.year === year)
   const [order, setOrder] = React.useState<Order>('asc')
   const [orderBy, setOrderBy] = React.useState<keyof PrizeData>('date')
   const [page, setPage] = React.useState(0)
@@ -63,7 +64,7 @@ export default function TablePage({ data }: TablePageProps) {
   }
 
   const handleLanguageChange = (language: Language) => {
-    navigate(`/nagrody/${language}/${Number(params.year)}`)
+    navigate(`/nagrody/${language}/${year}`)
   }
 
   const goToSelectPage = () => {
@@ -78,7 +79,7 @@ export default function TablePage({ data }: TablePageProps) {
   return (
     <Box sx={{ width: '100%' }}>
       <Paper elevation={6} sx={{ width: '100%', mb: 2 }}>
-        <PrizeTableTitle language={language} onLanguageChange={handleLanguageChange} />
+        <PrizeTableTitle language={language} onLanguageChange={handleLanguageChange} year={year} />
         <TableContainer>
           <Table
             sx={{ minWidth: 750 }}
